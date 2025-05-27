@@ -6,10 +6,8 @@
 
 1. [Overview](#overview)
 2. [Tech Stack](#tech-stack)
-3. [Data](#data)
-4. [Features](#features)
-5. [Schema](#schema)
-6. [Build Instructions](#build-instructions)
+3. [Schema](#schema)
+4. [Build Instructions](#build-instructions)
 
 ## Overview 
 
@@ -32,37 +30,6 @@ On the technical side, our recommendation model will employ an ensemble approach
  - AWS EC2: Cloud computing and hosting.
  - GitHub Actions: Implemented for continuous integration.
 
-## Data 
-
-The database is initially seeded with data using a script after spinning up the containers. There are two options for the source of the data. The `data/` folder in this repo contains about 100,000 real tweets from January 1st-10th, 2021. If more data is desired, there is an option to instead insert randomly generated tweets. These tweets consist of 5-12 random english words, followed by 1-4 randomly generated hashtags. 
-
-## Features 
-
-This project seeks to replicate Twitter's core CRUD (Create Read Update Delete) functionaility. This project has 7 endpoints, each facilitating a different primary function:
-
-**Home Page**
- - The home page displays all tweets in the system, along with the user that posted it and the date + time of creation.
- - The most recent 20 messages are displayed, with all older tweets available on subsequent pages.
-
-**Create Account**
- - Displays a form for a user to enter their name, username, and password.
- - Checks whether the username is taken, and that the password confirmation matches
- - If valid, inserts the new user information to the `users` table.
-
-**Login**
-  - Checks that entered credentials are valid, and stores them using cookies to keep the user logged in.
-
-**Logout**
- - Deletes the cookies containing the user's credentials.
-
-**Create Message**
- - Inserts the message entered into the `tweets` table, and the message is made visible at the top of the homepage.
-
-**Search**
- - Uses full text search to find and display relevant tweets.
-
-**Trending**
- - Displays the top trending hashtags in the system.
 
 ## Schema 
 
@@ -115,10 +82,3 @@ To stop the production containers:
 $ docker-compose -f docker-compose.prod.yml down -v
 ```
 
-To add initial data to the Postgres database, you may use the `load_tweets_parallel.sh` script. The usage for this file is:
-
-```
-$ sh load_tweets_parallel.sh [DATA SOURCE (--local_tweets or --random_tweets)] [NUMBER OF TWEETS (positive integer value)]
-```
-
-The local tweets option has a maximum of 99,997 tweets.
