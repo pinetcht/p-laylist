@@ -6,8 +6,7 @@
 
 1. [Overview](#overview)
 2. [Tech Stack](#tech-stack)
-3. [Schema](#schema)
-4. [Build Instructions](#build-instructions)
+3. [Build Instructions](#build-instructions)
 
 ## Overview 
 
@@ -30,14 +29,6 @@ On the technical side, our recommendation model will employ an ensemble approach
  - AWS EC2: Cloud computing and hosting.
  - GitHub Actions: Implemented for continuous integration.
 
-
-## Schema 
-
-To enable this desired functionality, I designed a simple schema, shown in this E-R diagram.
-
-![schema E-R diagram](schema.png)
-
-There is also a view not shown in the diagram called `tweet_tags_count` that precomputes the counts for each hashtag usage for quick access later.
 
 ## Build Instruction
 
